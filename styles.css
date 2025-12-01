@@ -1,0 +1,265 @@
+/* --------------------
+   1. RESET BÁSICO Y FUENTES
+   -------------------- */
+:root {
+    --primary-color: #A82012; /* Rojo oscuro */
+    --secondary-color: #0466A8; /* Azul marino/océano */
+    --text-dark: #333;
+    --text-light: #f5f5f5;
+    --bg-light: #ffffff;
+    --bg-dark: #fafafa;
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding-bottom: 80px;
+}
+
+/* --------------------
+   2. HEADER & LOGO
+   -------------------- */
+.header {
+    text-align: center;
+    padding: 40px 20px 0; /* Sin padding inferior para que el sub-menú lo defina */
+    background-color: var(--bg-light);
+    box-shadow: var(--shadow-light);
+}
+
+.logo {
+    width: 300px;
+    height: auto;
+    animation: fadeIn 1s ease-out;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.tagline {
+    font-size: 1.1em;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* --------------------
+   3. SUB-MENÚ DE NAVEGACIÓN (ÍNDICE)
+   -------------------- */
+.sub-menu {
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+    padding: 15px 0;
+    background-color: var(--bg-light);
+}
+
+.sub-menu h3 {
+    font-size: 1.1em;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.menu-links {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los enlaces pasen a la siguiente línea */
+    justify-content: center;
+    gap: 10px;
+    padding: 0 20px;
+}
+
+.menu-links a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 600;
+    padding: 8px 15px;
+    border: 2px solid var(--primary-color);
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu-links a:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+/* --------------------
+   4. ESTRUCTURA DE CATÁLOGO (DOS COLUMNAS)
+   -------------------- */
+.menu-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.menu-category {
+    margin-bottom: 60px;
+}
+
+.menu-category h2 {
+    font-size: 2.2em;
+    font-weight: 800;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 4px solid var(--secondary-color);
+}
+
+.category-content {
+    display: flex;
+    background-color: var(--bg-light);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    min-height: 400px;
+    animation: slideIn 0.8s ease-out backwards; /* Animación para la sección completa */
+}
+
+/* Invertir el orden de las columnas */
+.category-content.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Columna de la Imagen */
+.image-column {
+    flex: 1;
+    overflow: hidden;
+    min-height: auto;
+}
+
+.image-column img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.category-content:hover .image-column img {
+    transform: scale(1.05); /* Zoom sutil al pasar el mouse */
+}
+
+/* Columna del Contenido */
+.content-column {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-list {
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.product-item {
+    padding: 15px 0;
+    border-bottom: 1px dashed #ddd;
+    animation: fadeIn 0.8s ease-out backwards; /* Animación para productos individuales */
+}
+.product-item:last-child {
+    border-bottom: none;
+}
+
+.product-item h4 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.product-item small {
+    font-weight: 400;
+    color: #666;
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+
+.price {
+    color: var(--primary-color);
+    font-size: 1.4em;
+    font-weight: 800;
+}
+
+.description {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.note {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+    margin: 40px 0;
+}
+
+.footer {
+    text-align: center;
+    padding: 50px;
+    background-color: var(--bg-light);
+    box-shadow: var(--shadow-light);
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* --------------------
+   5. ANIMACIONES Y RESPONSIVE
+   -------------------- */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Retrasos de animación para los elementos de la lista */
+.product-item:nth-child(1) { animation-delay: 0.1s; }
+.product-item:nth-child(2) { animation-delay: 0.2s; }
+.product-item:nth-child(3) { animation-delay: 0.3s; }
+/* ... puedes seguir con más retrasos ... */
+
+/* Adaptación a Móviles (Single Column) */
+@media (max-width: 850px) {
+    .category-content, .category-content.reverse {
+        flex-direction: column; /* Apila las columnas */
+    }
+
+    .image-column {
+        height: 250px; /* Altura más manejable en móvil */
+    }
+    
+    .content-column {
+        padding: 20px;
+    }
+
+    .sub-menu {
+        padding: 10px 0;
+    }
+    .menu-links a {
+        font-size: 0.75em;
+        padding: 6px 12px;
+    }
+}
