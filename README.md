@@ -1,1 +1,1 @@
-https://strong-basbousa-ae6329.netlify.app/
+https://mariscos-chato.netlify.app/
