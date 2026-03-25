@@ -92,10 +92,20 @@ body {
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+.sub-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    max-width: 980px;
+    margin: 0 auto 12px;
+    padding: 0 20px;
+}
+
 .sub-menu h3 {
     font-size: 1.1em;
     color: var(--secondary-color);
-    margin-bottom: 10px;
+    margin-bottom: 0;
     font-weight: 600;
 }
 
@@ -123,17 +133,16 @@ body {
     color: var(--text-light);
 }
 
-.menu-actions {
-    margin-top: 14px;
-}
-
 .theme-toggle-btn {
     border: 2px solid var(--secondary-color);
     background-color: transparent;
     color: var(--secondary-color);
     border-radius: 999px;
-    padding: 8px 16px;
+    width: 44px;
+    height: 44px;
     font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
@@ -309,6 +318,12 @@ body {
     .sub-menu {
         padding: 10px 0;
     }
+
+    .sub-menu-header {
+        padding: 0 14px;
+        margin-bottom: 10px;
+    }
+
     .menu-links a {
         font-size: 0.75em;
         padding: 6px 12px;

@@ -7,7 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!themeToggleBtn) return;
 
         const isDark = theme === "dark";
-        themeToggleBtn.textContent = isDark ? "Tema claro" : "Tema oscuro";
+        themeToggleBtn.innerHTML = isDark ? "&#9728;" : "&#9790;";
+        themeToggleBtn.setAttribute("aria-label", isDark ? "Activar tema claro" : "Activar tema oscuro");
+        themeToggleBtn.setAttribute("title", isDark ? "Activar tema claro" : "Activar tema oscuro");
         themeToggleBtn.setAttribute("aria-pressed", String(isDark));
     };
 
