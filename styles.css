@@ -9,6 +9,28 @@
     --bg-light: #ffffff;
     --bg-dark: #fafafa;
     --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --tagline-color: #666;
+    --border-light: #eee;
+    --item-divider: #ddd;
+    --muted-text: #888;
+    --scroll-btn-bg: #c62828;
+    --scroll-btn-hover: #a71d1d;
+}
+
+[data-theme="dark"] {
+    --primary-color: #ff6f61;
+    --secondary-color: #6ec5ff;
+    --text-dark: #ececec;
+    --text-light: #141414;
+    --bg-light: #1f1f1f;
+    --bg-dark: #111111;
+    --shadow-light: 0 8px 24px rgba(0, 0, 0, 0.45);
+    --tagline-color: #bebebe;
+    --border-light: #3a3a3a;
+    --item-divider: #444;
+    --muted-text: #a5a5a5;
+    --scroll-btn-bg: #ef5350;
+    --scroll-btn-hover: #e53935;
 }
 
 * {
@@ -27,6 +49,7 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     padding-bottom: 80px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* --------------------
@@ -37,6 +60,7 @@ body {
     padding: 40px 20px 0; /* Sin padding inferior para que el sub-menú lo defina */
     background-color: var(--bg-light);
     box-shadow: var(--shadow-light);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .logo {
@@ -53,7 +77,7 @@ body {
 
 .tagline {
     font-size: 1.1em;
-    color: #666;
+    color: var(--tagline-color);
     margin-top: 5px;
 }
 
@@ -61,10 +85,11 @@ body {
    3. SUB-MENÚ DE NAVEGACIÓN (ÍNDICE)
    -------------------- */
 .sub-menu {
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--border-light);
     margin-top: 20px;
     padding: 15px 0;
     background-color: var(--bg-light);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .sub-menu h3 {
@@ -98,6 +123,30 @@ body {
     color: var(--text-light);
 }
 
+.menu-actions {
+    margin-top: 14px;
+}
+
+.theme-toggle-btn {
+    border: 2px solid var(--secondary-color);
+    background-color: transparent;
+    color: var(--secondary-color);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.98);
+}
+
 /* --------------------
    4. ESTRUCTURA DE CATÁLOGO (DOS COLUMNAS)
    -------------------- */
@@ -129,6 +178,7 @@ body {
     box-shadow: var(--shadow-light);
     min-height: 400px;
     animation: slideIn 0.8s ease-out backwards; /* Animación para la sección completa */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Invertir el orden de las columnas */
@@ -171,7 +221,7 @@ body {
 
 .product-item {
     padding: 15px 0;
-    border-bottom: 1px dashed #ddd;
+    border-bottom: 1px dashed var(--item-divider);
     animation: fadeIn 0.8s ease-out backwards; /* Animación para productos individuales */
 }
 .product-item:last-child {
@@ -188,7 +238,7 @@ body {
 
 .product-item small {
     font-weight: 400;
-    color: #666;
+    color: var(--tagline-color);
     font-size: 0.8em;
     margin-left: 10px;
 }
@@ -201,13 +251,13 @@ body {
 
 .description {
     font-size: 0.9em;
-    color: #888;
+    color: var(--muted-text);
 }
 
 .note {
     text-align: center;
     font-style: italic;
-    color: #888;
+    color: var(--muted-text);
     margin: 40px 0;
 }
 
@@ -218,7 +268,8 @@ body {
     box-shadow: var(--shadow-light);
     margin-top: 40px;
     font-size: 0.9em;
-    color: #666;
+    color: var(--tagline-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* --------------------
@@ -274,8 +325,8 @@ body {
     height: 48px;
     border-radius: 50%;
 
-    background-color: #c62828; /* rojo elegante */
-    color: #fff;
+    background-color: var(--scroll-btn-bg);
+    color: var(--text-light);
     font-size: 22px;
     font-weight: bold;
 
@@ -287,7 +338,7 @@ body {
 }
 
 #scrollTopBtn:hover {
-    background-color: #a71d1d;
+    background-color: var(--scroll-btn-hover);
     transform: translateY(-2px);
 }
 
